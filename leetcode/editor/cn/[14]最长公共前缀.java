@@ -25,7 +25,7 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String longestCommonPrefix(String[] strs) {
-        if(strs.length==0){
+        /*if(strs.length==0){
             return "";
         }
         String str=strs[0];
@@ -34,7 +34,23 @@ class Solution {
                 str=str.substring(0,str.length()-1);
             }
         }
-        return str;
+        return str;*/
+        if(strs.length==0){
+            return "";
+        }
+        int minLength=strs[0].length();
+        for(String str:strs){
+            minLength = Math.min(str.length(),minLength);
+        }
+        for(int i=0;i<minLength;i++){
+            for(String str:strs){
+                if(strs[0].charAt(i)!=str.charAt(i)){
+                    return strs[0].substring(0,i);
+                }
+            }
+        }
+
+        return strs[0].substring(0,minLength);
     }
 }
 
