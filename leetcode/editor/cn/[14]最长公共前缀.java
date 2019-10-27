@@ -42,8 +42,8 @@ class Solution {
         for(String str:strs){
             minLength = Math.min(str.length(),minLength);
         }
-        for(int i=0;i<minLength;i++){
-            for(String str:strs){
+        for(int i=0;i<minLength;i++){  //外层循环和内层循环不可以交换
+            for(String str:strs){      //这样比较是比较每一个字符串i位和第一个字符穿的前缀，若交换循环，则是比较当前字符串和第一个字符串
                 if(strs[0].charAt(i)!=str.charAt(i)){
                     return strs[0].substring(0,i);
                 }
