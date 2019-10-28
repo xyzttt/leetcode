@@ -20,13 +20,13 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummyNode = new ListNode(0);
-        ListNode curNode = dummyNode;
+        ListNode dummyNode = new ListNode(0); //创建虚拟头节点链表
+        ListNode curNode = dummyNode;  //当前节点
         while(l1!=null&&l2!=null){
             if (l1.val<=l2.val) {
-                curNode.next = l1;
-                curNode = curNode.next;
-                l1 = l1.next;
+                curNode.next = l1;        //头结点的下一个赋值为当前位合并的最小值
+                curNode = curNode.next;    //当前节点更新
+                l1 = l1.next;             //未合并的节点更新
             }else{
                 curNode.next = l2;
                 curNode = curNode.next;
@@ -34,7 +34,7 @@ class Solution {
             }
 
         }
-        if(l1==null){
+        if(l1==null){             //若有一个链表为空，则将另一个剩余结点加到合并链表
             curNode.next = l2;
         }else{
             curNode.next = l1;
