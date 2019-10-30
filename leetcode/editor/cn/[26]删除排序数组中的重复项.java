@@ -46,7 +46,7 @@ class Solution {
         if(nums.length==0){
             return 0;
         }
-        int cur=0;     //定义新生成数组最新添加进去元素的下标，即当前新生成数组长度
+        int cur=0;     //定义新生成数组最新添加进去元素的下标，即当前新生成数组长度。
         for(int i=1;i<nums.length;i++){
             if(nums[i]!=nums[cur]){
                 if(i-cur>1){             //当前元素值距离新生成数组最后一个元素1以上距离时重新赋值，否则直接移动指针就行
